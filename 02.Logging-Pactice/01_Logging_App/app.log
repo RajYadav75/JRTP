@@ -5591,3 +5591,9 @@ java.io.EOFException: null
 2024-07-31 16:07:03.342 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 2 expired sessions: 0
 2024-07-31 16:08:03.770 DEBUG 11892 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1722422283770 sessioncount 0
 2024-07-31 16:08:03.770 DEBUG 11892 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2024-07-31 16:09:04.395 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1722422344392 sessioncount 0
+2024-07-31 16:09:04.397 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 5 expired sessions: 0
+2024-07-31 16:10:06.229 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1722422406229 sessioncount 0
+2024-07-31 16:10:06.230 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2024-07-31 16:11:06.543 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1722422466541 sessioncount 0
+2024-07-31 16:11:06.544 DEBUG 11892 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 3 expired sessions: 0
