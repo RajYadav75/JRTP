@@ -1,0 +1,32 @@
+2024-07-31 17:09:56,155 [restartedMain] INFO  in.raj.Application                                 - Starting Application using Java 1.8.0_411 on DESKTOP-S9SD7R8 with PID 4120 (C:\Users\Raj Yadav\Desktop\JRTP\02.Logging-Pactice\03_SpringBoot_Logging_APP\target\classes started by Raj Yadav in C:\Users\Raj Yadav\Desktop\JRTP\02.Logging-Pactice\03_SpringBoot_Logging_APP)
+2024-07-31 17:09:56,156 [restartedMain] INFO  in.raj.Application                                 - No active profile set, falling back to 1 default profile: "default"
+2024-07-31 17:09:56,497 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 8080 (http)
+2024-07-31 17:09:56,499 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2024-07-31 17:09:56,499 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-07-31 17:09:56,543 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2024-07-31 17:09:56,544 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 384 ms
+2024-07-31 17:09:56,660 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729
+2024-07-31 17:09:56,674 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 8080 (http) with context path ''
+2024-07-31 17:09:56,680 [restartedMain] INFO  in.raj.Application                                 - Started Application in 0.823 seconds (JVM running for 728.663)
+2024-07-31 17:09:56,681 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener  - Condition evaluation unchanged
+2024-07-31 17:10:24,273 [restartedMain] INFO  in.raj.Application                                 - Starting Application using Java 1.8.0_411 on DESKTOP-S9SD7R8 with PID 9076 (C:\Users\Raj Yadav\Desktop\JRTP\02.Logging-Pactice\03_SpringBoot_Logging_APP\target\classes started by Raj Yadav in C:\Users\Raj Yadav\Desktop\JRTP\02.Logging-Pactice\03_SpringBoot_Logging_APP)
+2024-07-31 17:10:24,278 [restartedMain] INFO  in.raj.Application                                 - No active profile set, falling back to 1 default profile: "default"
+2024-07-31 17:10:24,390 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-31 17:10:24,391 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-31 17:10:26,684 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 8080 (http)
+2024-07-31 17:10:26,717 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-8080"]
+2024-07-31 17:10:26,719 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2024-07-31 17:10:26,722 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-07-31 17:10:26,953 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2024-07-31 17:10:26,954 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2562 ms
+2024-07-31 17:10:27,835 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729
+2024-07-31 17:10:27,883 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-8080"]
+2024-07-31 17:10:27,921 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 8080 (http) with context path ''
+2024-07-31 17:10:27,940 [restartedMain] INFO  in.raj.Application                                 - Started Application in 4.538 seconds (JVM running for 6.481)
+2024-07-31 17:10:39,533 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-31 17:10:39,534 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2024-07-31 17:10:39,546 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 7 ms
+2024-07-31 17:10:39,679 [http-nio-8080-exec-1] INFO  in.raj.controller.MsgRestController                - Welcome() started
+2024-07-31 17:10:39,686 [http-nio-8080-exec-1] WARN  in.raj.controller.MsgRestController                - this warning from welcomeMsg()
+2024-07-31 17:10:39,689 [http-nio-8080-exec-1] ERROR in.raj.controller.MsgRestController                - Exception occured :: / by zero
+2024-07-31 17:10:39,697 [http-nio-8080-exec-1] INFO  in.raj.controller.MsgRestController                - welcomeMsg() ended 
