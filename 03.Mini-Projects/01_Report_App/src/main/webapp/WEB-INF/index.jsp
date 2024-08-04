@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -71,7 +72,7 @@
                 </td>
                 <td>End Date</td>
                 <td>
-                    <form:input type="date"  data-date-format="yyyy-mm-dd" path="endDate"/>
+                    <form:input type="date" data-date-format="yyyy-mm-dd" path="endDate"/>
                 </td>
             </tr>
 
@@ -84,15 +85,48 @@
         </table>
     </form:form>
     <hr/>
+    <table class="table table-striped table-hover table-dark">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Holder Name</th>
+                <th>Gender</th>
+                <th>Plan Name</th>
+                <th>Plan Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Benifit Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${plans}" var="plan" varStatus="index">
+                <tr>
+<%--                    <td>${plan.citizenId}</td>--%>
+                    <td>${index.count}</td>
+                    <td>${plan.citizenName}</td>
+                    <td>${plan.gender}</td>
+                    <td>${plan.planName}</td>
+                    <td>${plan.planStatus}</td>
+                    <td>${plan.planStartDate}</td>
+                    <td>${plan.planEndDate}</td>
+                    <td>${plan.benefitAmt}</td>
+                </tr>
 
+
+            </c:forEach>
+
+
+
+        </tbody>
+    </table>
 
 
     <hr/>
 
     <div>
         <p>Export :
-        <a href="" >EXCEL</a>
-        <a href="">PDF</a>
+            <a href="">EXCEL</a>
+            <a href="">PDF</a>
 
         </p>
     </div>
@@ -100,5 +134,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
 </body>
 </html>

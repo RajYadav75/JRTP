@@ -3,7 +3,9 @@ package in.raj.service;
 import in.raj.entity.CitizenPlan;
 import in.raj.repository.CitizenPlanRepository;
 import in.raj.request.SearchRequest;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +28,18 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public List<CitizenPlan> search(SearchRequest request) {
-        return null;
+        CitizenPlan entity = new CitizenPlan();
+
+        if (null!=request.getPlanName() && !"".equals(request.getPlanName())) {
+            entity.setPlanName(request.getPlanName());
+        }
+        if (null!=request.getPlanStatus() && !"".equals(request.getPlanStatus())) {
+            entity.setPlanStatus(request.getPlanStatus());
+        }
+        if (null!=request.getGender() && !"".equals(request.getGender())) {
+            entity.setGender(request.getGender());
+        }
+        return planrepo.findAll(Example.of(entity));
     }
 
     @Override
