@@ -10,12 +10,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
 public class ReportController {
     @Autowired
     private ReportService service;
+
+    @GetMapping("/excel")
+    public void excelExport(HttpServletResponse response) throws Exception{
+        response.setContentType("application/octet-stream");
+        response.addHeader("Content-Disposition","attachment;filename=plans.xls");
+        service.exportExcel(response);
+    }
+
+
+    @GetMapping("/pdf")
+    public void pdfExport(HttpServletResponse response) throws Exception{
+        response.setContentType("application/pdf");
+        response.addHeader("Content-Disposition","attachment;filename=plans.pdf");
+        service.exportPdf(response);
+    }
+
 
     @GetMapping("/")
     public String indexPage(Model model){

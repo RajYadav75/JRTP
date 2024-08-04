@@ -132,8 +132,8 @@
 
     <div>
         <p>Export :
-            <a href="">EXCEL</a>
-            <a href="">PDF</a>
+            <a href="/excel">EXCEL</a>
+            <a href="/pdf">PDF</a>
 
         </p>
     </div>
