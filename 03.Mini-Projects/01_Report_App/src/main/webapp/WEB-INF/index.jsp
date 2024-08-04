@@ -36,19 +36,21 @@
 
     <button class="btn btn-danger">Search</button>--%>
 
-    <form:form action="" modelAttribute="search" method="post">
+    <form:form action="search" modelAttribute="search" method="post">
         <table>
             <tr>
                 <td>Plan Name :</td>
                 <td>
                     <form:select path="planName">
                         <form:option value="">--Select--</form:option>
+                        <form:options items="${names}"/>
                     </form:select>
                 </td>
                 <td>Plan Status :</td>
                 <td>
                     <form:select path="planStatus">
                         <form:option value="">--Select--</form:option>
+                        <form:options items="${status}"/>
                     </form:select>
                 </td>
                 <td>
@@ -65,11 +67,11 @@
             <tr>
                 <td>Start Date</td>
                 <td>
-                    <form:input path="startDate"/>
+                    <form:input type="date" data-date-format="yyyy-mm-dd" path="startDate"/>
                 </td>
                 <td>End Date</td>
                 <td>
-                    <form:input path="endDate"/>
+                    <form:input type="date"  data-date-format="yyyy-mm-dd" path="endDate"/>
                 </td>
             </tr>
 

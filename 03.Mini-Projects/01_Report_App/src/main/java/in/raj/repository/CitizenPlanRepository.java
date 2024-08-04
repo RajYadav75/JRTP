@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CitizenPlanRepository extends JpaRepository<CitizenPlan, Integer> {
     @Query("select  distinct (planName) from CitizenPlan ")
-    List<String> getPlanNames();
+    public List<String> getPlanNames();
 
     @Query("select  distinct (planStatus) from CitizenPlan ")
-    List<String> getPlanStatus();
+    public List<String> getPlanStatus();
 }
