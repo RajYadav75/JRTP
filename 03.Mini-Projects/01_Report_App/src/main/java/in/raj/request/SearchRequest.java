@@ -10,8 +10,8 @@ public class SearchRequest {
     private String planName;
     private String planStatus;
     private String gender;
-    @DateTimeFormat(pattern = "DD-MM-YYYY")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private LocalDate startDate;
-    @DateTimeFormat(pattern = "DD-MM-YYYY")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private LocalDate endDate;
 }
