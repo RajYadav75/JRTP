@@ -103,7 +103,7 @@ public class DataLoader implements ApplicationRunner {
         CitizenPlan c9 = new CitizenPlan();
         c9.setCitizenName("Kanishka");
         c9.setGender("Female");
-        c9.setPlanName("Mediacal");
+        c9.setPlanName("Medical");
         c9.setPlanStatus("Terminated");
         c9.setPlanStartDate(LocalDate.now().minusMonths(4));
         c9.setPlanEndDate(LocalDate.now().plusMonths(6));

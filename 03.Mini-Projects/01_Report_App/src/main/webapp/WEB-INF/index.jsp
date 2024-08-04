@@ -19,7 +19,7 @@
 <body>
 <div class="container">
 
-    <h3 class="pb-3 pt-3 ">Report Application</h3>
+    <h3 class="pb-3 pt-3">Report Application</h3>
 
     <%--<div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -68,53 +68,60 @@
             <tr>
                 <td>Start Date</td>
                 <td>
-                    <form:input type="date" data-date-format="yyyy-mm-dd" path="startDate"/>
+                    <form:input type="date" data-date-format="yyyy-MM-dd" path="startDate"/>
                 </td>
                 <td>End Date</td>
                 <td>
-                    <form:input type="date" data-date-format="yyyy-mm-dd" path="endDate"/>
+                    <form:input type="date" data-date-format="yyyy-MM-dd" path="endDate"/>
                 </td>
             </tr>
 
             <tr>
+
+                <td>
+                    <a href="/" class="btn btn-danger">Reset</a>
+                </td>
                 <td>
                     <input type="submit" value="Search" class="btn btn-primary"/>
                 </td>
-
             </tr>
         </table>
     </form:form>
     <hr/>
     <table class="table table-striped table-hover table-dark">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Holder Name</th>
-                <th>Gender</th>
-                <th>Plan Name</th>
-                <th>Plan Status</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Benifit Amount</th>
-            </tr>
+        <tr>
+            <th>ID</th>
+            <th>Holder Name</th>
+            <th>Gender</th>
+            <th>Plan Name</th>
+            <th>Plan Status</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Benifit Amount</th>
+        </tr>
         </thead>
         <tbody>
-            <c:forEach items="${plans}" var="plan" varStatus="index">
-                <tr>
-<%--                    <td>${plan.citizenId}</td>--%>
-                    <td>${index.count}</td>
-                    <td>${plan.citizenName}</td>
-                    <td>${plan.gender}</td>
-                    <td>${plan.planName}</td>
-                    <td>${plan.planStatus}</td>
-                    <td>${plan.planStartDate}</td>
-                    <td>${plan.planEndDate}</td>
-                    <td>${plan.benefitAmt}</td>
-                </tr>
+        <c:forEach items="${plans}" var="plan" varStatus="index">
+            <tr>
+                    <%--                    <td>${plan.citizenId}</td>--%>
+                <td>${index.count}</td>
+                <td>${plan.citizenName}</td>
+                <td>${plan.gender}</td>
+                <td>${plan.planName}</td>
+                <td>${plan.planStatus}</td>
+                <td>${plan.planStartDate}</td>
+                <td>${plan.planEndDate}</td>
+                <td>${plan.benefitAmt}</td>
+            </tr>
+        </c:forEach>
 
+        <tr>
 
-            </c:forEach>
-
+            <c:if test="${empty plans}">
+               <td colspan="7" style="text-align: center">No Record Found</td>
+            </c:if>
+        </tr>
 
 
         </tbody>

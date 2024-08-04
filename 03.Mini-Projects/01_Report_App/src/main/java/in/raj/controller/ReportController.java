@@ -25,7 +25,6 @@ public class ReportController {
     }
 
     private void init(Model model) {
-
         model.addAttribute("names",service.getPlanNames());
         model.addAttribute("status",service.getPlanStatuses());
     }
