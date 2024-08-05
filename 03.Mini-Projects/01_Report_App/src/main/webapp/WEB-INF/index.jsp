@@ -134,7 +134,6 @@
         <p>Export :
             <a href="/excel">EXCEL</a>
             <a href="/pdf">PDF</a>
-
         </p>
     </div>
 </div>

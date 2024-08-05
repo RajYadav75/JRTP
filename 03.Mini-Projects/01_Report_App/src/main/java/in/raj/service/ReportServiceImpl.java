@@ -81,6 +81,4 @@ public class ReportServiceImpl implements ReportService {
         pdfGenerator.generate(response,plans);
         return true;
     }
-
-
 }
