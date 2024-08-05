@@ -3,6 +3,7 @@ package in.raj.service;
 import in.raj.entity.CitizenPlan;
 import in.raj.repository.CitizenPlanRepository;
 import in.raj.request.SearchRequest;
+import in.raj.util.EmailUtil;
 import in.raj.util.ExcelGenerator;
 import in.raj.util.PDFGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class ReportServiceImpl implements ReportService {
 
     @Autowired
     private PDFGenerator pdfGenerator;
+
+    @Autowired
+    private EmailUtil emailUtil;
 
     @Override
     public List<String> getPlanNames() {
@@ -72,6 +76,10 @@ public class ReportServiceImpl implements ReportService {
     public boolean exportExcel(HttpServletResponse response) throws Exception {
         List<CitizenPlan> plans = planrepo.findAll();
         excelGenerator.generate(response,plans);
+        String subject = "Test Mail Subject";
+        String body = "<h1>Test Mail Body</h1>";
+        String to = "rajyadav@gmail.com";
+        emailUtil.sendEmail(subject, body, to);
         return true;
     }
 
