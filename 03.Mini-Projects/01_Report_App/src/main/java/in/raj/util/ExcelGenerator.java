@@ -11,12 +11,14 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 @Component
 public class ExcelGenerator {
     @Autowired
     private CitizenPlanRepository planrepo;
-    public void generate(HttpServletResponse response, List<CitizenPlan> records) throws Exception {
+    public void generate(HttpServletResponse response, List<CitizenPlan> records,File file) throws Exception {
 //        Workbook workbook = new HSSFWorkbook();
         Workbook workbook = new XSSFWorkbook();
 
@@ -58,6 +60,10 @@ public class ExcelGenerator {
 
             dataRowIndex++;
         }
+
+        FileOutputStream fos = new FileOutputStream(file);
+        workbook.write(fos);
+        fos.close();
 
         ServletOutputStream outputStream = response.getOutputStream();
         workbook.write(outputStream);

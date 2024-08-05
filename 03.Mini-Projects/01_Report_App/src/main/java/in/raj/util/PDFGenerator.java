@@ -9,15 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 @Component
 public class PDFGenerator {
     @Autowired
     private CitizenPlanRepository planrepo;
-    public void generate(HttpServletResponse response, List<CitizenPlan> plans) throws Exception {
+    public void generate(HttpServletResponse response, List<CitizenPlan> plans, File f) throws Exception {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
+
+        PdfWriter.getInstance(document,new FileOutputStream(f));
 
         document.open();
         // Creating Font

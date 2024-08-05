@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -74,19 +75,27 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public boolean exportExcel(HttpServletResponse response) throws Exception {
+        File f = new File("Plans.xls");
         List<CitizenPlan> plans = planrepo.findAll();
-        excelGenerator.generate(response,plans);
+        excelGenerator.generate(response,plans, f);
         String subject = "Test Mail Subject";
         String body = "<h1>Test Mail Body</h1>";
         String to = "rajyadav@gmail.com";
-        emailUtil.sendEmail(subject, body, to);
+        emailUtil.sendEmail(subject, body, to,f);
+        f.delete();
         return true;
     }
 
     @Override
     public boolean exportPdf(HttpServletResponse response) throws Exception {
+        File f = new File("Plans.pdf");
         List<CitizenPlan> plans = planrepo.findAll();
-        pdfGenerator.generate(response,plans);
+        pdfGenerator.generate(response,plans,f);
+        String subject = "Test Mail Subject";
+        String body = "<h1>Test Mail Body</h1>";
+        String to = "rajyadav@gmail.com";
+        emailUtil.sendEmail(subject, body, to,f);
+        f.delete();
         return true;
     }
 }
