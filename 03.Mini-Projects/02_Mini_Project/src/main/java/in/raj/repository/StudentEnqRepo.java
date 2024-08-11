@@ -1,4 +1,6 @@
 package in.raj.repository;
 
-public class StudentEnqRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface StudentEnqRepo extends JpaRepository {
 }

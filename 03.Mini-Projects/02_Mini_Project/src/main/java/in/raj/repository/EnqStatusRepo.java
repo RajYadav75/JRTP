@@ -1,4 +1,6 @@
 package in.raj.repository;
 
-public class EnqStatusRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EnqStatusRepo  extends JpaRepository {
 }

@@ -1,4 +1,6 @@
 package in.raj.repository;
 
-public class CourseRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CourseRepo extends JpaRepository {
 }
