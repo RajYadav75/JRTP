@@ -13,7 +13,7 @@ public class UserDtlsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    private String userName;
+    private String name;
 
     private String email;
 
@@ -23,6 +23,6 @@ public class UserDtlsEntity {
 
     private String accStatus;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<StudentEnqEntity> enquiries;
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<StudentEnqEntity> enquiries;
 }

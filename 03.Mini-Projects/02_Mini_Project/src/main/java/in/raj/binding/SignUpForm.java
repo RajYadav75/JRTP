@@ -9,5 +9,5 @@ public class SignUpForm {
 
     private String email;
 
-    private String phno;
+    private Long phno;
 }
