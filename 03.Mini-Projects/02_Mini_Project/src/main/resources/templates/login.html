@@ -2,21 +2,21 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>RajYadav | JRTP | Login</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
     <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+          href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
     <!-- MDB -->
-    <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-login-form.min.css"/>
     <style>
         .gradient-custom-2 {
             /* fallback for old browsers */
@@ -27,13 +27,13 @@
             background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
         }
 
-        @media ( min-width : 768px) {
+        @media ( min-width: 768px) {
             .gradient-form {
                 height: 100vh !important;
             }
         }
 
-        @media ( min-width : 769px) {
+        @media ( min-width: 769px) {
             .gradient-custom-2 {
                 border-top-right-radius: .3rem;
                 border-bottom-right-radius: .3rem;
@@ -81,26 +81,26 @@
                                          alt="logo">
                                     <h4 class="mt-1 mb-5 pb-1"></h4>
                                 </div>
-
-                                <form th:action="@{/login}" th:object="${/loginForm}" method="post">
+                                <p th:text="${errMsg}" class="text-danger"/>
+                                <form th:action="@{/login}" th:object="${loginForm}" method="POST">
                                     <p>Please login to your account</p>
 
                                     <div class="form-outline mb-4">
                                         <input type="email" id="form2Example11" class="form-control"
-                                               placeholder="Phone number or email address" th:field="*{email}" /> <label
+                                               placeholder="Phone number or email address" th:field="*{email}"/> <label
                                             class="form-label" for="form2Example11">Email ID:</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <input type="password" id="form2Example22"
-                                               class="form-control"  th:field="*{pwd}"/> <label class="form-label"
-                                                                              for="form2Example22">Password</label>
+                                               class="form-control" th:field="*{pwd}"/> <label class="form-label"
+                                                                                               for="form2Example22">Password</label>
                                     </div>
 
                                     <div class="text-center pt-1 mb-5 pb-1">
-                                        <a href="dashboard"
-                                           class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                           type="button">Log in</a>
+                                        <input type="submit"
+                                               class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                               value="Login"/>
                                         <a class="text-muted" href="forgot">Forgot password?</a>
                                     </div>
 

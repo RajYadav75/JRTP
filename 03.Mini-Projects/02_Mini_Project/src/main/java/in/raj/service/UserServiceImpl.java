@@ -19,8 +19,16 @@ public class UserServiceImpl implements UserService {
     private EmailUtils emailUtils;
 
     @Override
-    public String login(LoginForm form) {
-        return "";
+    public String  login(LoginForm form) {
+        UserDtlsEntity entity =
+                userDtlsRepo.findByEmailAndPwd(form.getEmail(), form.getPwd());
+        if (entity == null){
+            return "Invalid Credentials";
+        }
+        if (entity.getAccStatus().equals("LOCKED")){
+            return "Your Account Locked";
+        }
+        return "success";
     }
 
     @Override

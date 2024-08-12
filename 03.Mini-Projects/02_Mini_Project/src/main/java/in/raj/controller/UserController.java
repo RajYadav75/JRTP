@@ -43,6 +43,20 @@ public class UserController {
         return "login";
     }
 
+    @PostMapping("/login")
+    public String login(@ModelAttribute("loginForm") LoginForm loginForm, Model model) {
+//        System.out.println(loginForm);
+        String status = userService.login(loginForm);
+        if (status.contains("success")){
+            // redirect request to dashboard method
+            //return "dashboard"; this is wrong
+            return "redirect:/dashboard";
+        }else {
+            model.addAttribute("errMsg",status);
+        }
+        return "login";
+    }
+
 
     @GetMapping("/unlock")
     public String unlockPage(@RequestParam String email, Model model) {

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class EnquiryController {
     @GetMapping("/dashboard")
     public String dashBoardPage() {
+//        System.out.println("dashboard method calling ........");
+        //TODO -> logic to fetch data for dashboard
         return "dashboard";
     }
 
