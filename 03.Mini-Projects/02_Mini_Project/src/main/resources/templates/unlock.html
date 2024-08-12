@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>RajYadav | JRTP | Unlock</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
     <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+          href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
     <!-- MDB -->
     <style>
         .gradient-custom-2 {
@@ -26,20 +26,20 @@
             background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
         }
 
-        @media ( min-width : 768px) {
+        @media ( min-width: 768px) {
             .gradient-form {
                 height: 100vh !important;
             }
         }
 
-        @media ( min-width : 769px) {
+        @media ( min-width: 769px) {
             .gradient-custom-2 {
                 border-top-right-radius: .3rem;
                 border-bottom-right-radius: .3rem;
             }
         }
     </style>
-    <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-login-form.min.css"/>
 </head>
 
 <body>
@@ -81,35 +81,40 @@
                                          alt="logo">
                                     <h4 class="mt-1 mb-5 pb-1">Unlock your account here</h4>
                                 </div>
-
-                                <form>
+                                <p th:text="${errMsg}" class="text-danger"/>
+                                <p th:text="${succMsg}" class="text-success"/>
+                                <form th:action="@{/unlock}" th:object="${unlock}" method="POST">
 
                                     <div class="form-outline mb-6">
-                                        <h6>Your Email : ashokitschool@gmail.com</h6>
+                                        <h6>Your Email : <p th:text="${unlock.email}"/></h6>
+                                        <input type="hidden" th:field="${unlock.email}"/>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form2Example22"
-                                               class="form-control" /> <label class="form-label"
-                                                                              for="form2Example22">Temporary Password</label>
+                                        <input type="text" id="form2Example22"
+                                               class="form-control" th:field="*{tempPwd}"/> <label class="form-label"
+                                                                                                   for="form2Example22">Temporary
+                                        Password</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form2Example22"
-                                               class="form-control" /> <label class="form-label"
-                                                                              for="form2Example22">New Password</label>
+                                        <input type="password" id="form2Example23"
+                                               class="form-control" th:field="*{newPwd}"/> <label class="form-label"
+                                                                                                  for="form2Example23">New
+                                        Password</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form2Example22"
-                                               class="form-control" /> <label class="form-label"
-                                                                              for="form2Example22">Confirm Password</label>
+                                        <input type="password" id="form2Example24"
+                                               class="form-control" th:field="*{confirmPwd}"/> <label class="form-label"
+                                                                                                      for="form2Example24">Confirm
+                                        Password</label>
                                     </div>
 
                                     <div class="text-center pt-1 mb-5 pb-1">
-                                        <button
-                                                class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                                type="button">Unlock</button>
+                                        <input type="submit" value="Unlock"
+                                               class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                        />
                                     </div>
 
                                     <div

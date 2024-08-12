@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean signUp(SignUpForm form) {
         UserDtlsEntity user = userDtlsRepo.findByEmail(form.getEmail());
-        if (user != null){
+        if (user != null) {
             return false;
         }
 
@@ -62,7 +62,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean unlockAccount(UnlockForm form) {
-        return false;
+        UserDtlsEntity entity = userDtlsRepo.findByEmail(form.getEmail());
+        if (entity.getPwd().equals(form.getTempPwd())) {
+            entity.setPwd(form.getNewPwd());
+            entity.setAccStatus("UNLOCKED");
+            userDtlsRepo.save(entity);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
