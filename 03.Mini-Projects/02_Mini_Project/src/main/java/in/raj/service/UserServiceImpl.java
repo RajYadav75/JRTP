@@ -11,12 +11,16 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDtlsRepo userDtlsRepo;
     @Autowired
     private EmailUtils emailUtils;
+    @Autowired
+    private HttpSession session;
 
     @Override
     public String login(LoginForm form) {
@@ -28,6 +32,8 @@ public class UserServiceImpl implements UserService {
         if (entity.getAccStatus().equals("LOCKED")) {
             return "Your Account Locked";
         }
+        //Todo -> create session and store user data in session
+        session.setAttribute("userId",entity.getUserId());
         return "success";
     }
 
