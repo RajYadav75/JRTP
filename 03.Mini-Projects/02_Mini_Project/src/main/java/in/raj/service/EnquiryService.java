@@ -13,7 +13,7 @@ public interface EnquiryService {
 
     public DashboardResponse getDashboardData(Integer userId);
 
-    public String upsertEnquiry(EnquiryForm form);
+    public boolean upsertEnquiry(EnquiryForm form);
 
     public List<EnquiryForm> getEnquiries(Integer userId, EnquirySearchCriteria criteria);
 

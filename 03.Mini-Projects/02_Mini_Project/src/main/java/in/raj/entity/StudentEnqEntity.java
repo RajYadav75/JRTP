@@ -1,6 +1,8 @@
 package in.raj.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,9 +20,13 @@ public class StudentEnqEntity {
     private String classMode;
     private String courseName;
     private String enqStatus;
-    private Date dateCreated;
-    private Date lastUpdated;
-    private  Integer userId;
+    @CreationTimestamp
+    private LocalDate dateCreated;
+    @UpdateTimestamp
+    private LocalDate lastUpdated;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private  UserDtlsEntity user;
 
 
 }

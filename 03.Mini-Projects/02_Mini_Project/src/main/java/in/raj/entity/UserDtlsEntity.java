@@ -23,6 +23,6 @@ public class UserDtlsEntity {
 
     private String accStatus;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<StudentEnqEntity> enquiries;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<StudentEnqEntity> enquiries;
 }
