@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax | Raj</title>
+    <script src="/webjars/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#cname").on("change",function (e) {
+                $.ajax({
+                    type: "GET",
+                    url:"cmsg",
+                    data:{
+                        cname: $("#cname").val()
+                    },
+                    success:function (data){
+                        $("#dropDowndiv").html(data);
+                    }
+                });
+            });
+
+
+
+
+            $("#submitBtn").click(function (e) {
+                $.ajax({
+                    type: "GET",
+                    url: "/msg",
+                    data: {
+                        name : $("#username").val()
+                    },
+                    success: function (result) {
+                       $("#msgDiv").html(result);
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+Enter Name: <input type="text" name="name" id="username">
+<input type="button" value="Submit" id="submitBtn">
+<hr>
+<div id="msgDiv"></div>
+<hr>
+<select id="cname">
+    <option>-Select-</option>
+    <option>India</option>
+    <option>USA</option>
+    <option>UK</option>
+</select>
+<hr>
+<div id="dropDowndiv"></div>
+</body>
+</html>
