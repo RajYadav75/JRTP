@@ -149,7 +149,25 @@
 <!-- MDB -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <!-- Custom scripts -->
-<script type="text/javascript"></script>
+<script>
+    $(document).ready(funtion(){
+        $('.form-select').on("change",fuction(){
+            $.ajax({
+                type:'GET',
+                url:'/filter-enquires',
+                data:{
+                    name:$('#cname').val(),
+                    mode:$('#mode').val(),
+                    status:$('#status').val(),
+                },
+                success:function (result){
+                    $("#enqTbl").hide();
+                    $("#filterTable").html(result);
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
