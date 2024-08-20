@@ -2,6 +2,8 @@ package in.raj.controller;
 
 import in.raj.binding.DashboardResponse;
 import in.raj.binding.EnquiryForm;
+import in.raj.binding.EnquirySearchCriteria;
+import in.raj.entity.StudentEnqEntity;
 import in.raj.service.EnquiryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -31,8 +34,7 @@ public class EnquiryController {
         return "dashboard";
     }
 
-    @GetMapping("/enquiry")
-    public String addEnquiryPage(Model model) {
+    private void initForm(Model model){
         //TODO -> Get Courses for Drop Down
         List<String> courses = enqService.getCourseNames();
         //TODO -> Get Enquiry Status for Drop Down
@@ -43,6 +45,10 @@ public class EnquiryController {
         model.addAttribute("courseNames",courses);
         model.addAttribute("statusNames",enqStatuses);
         model.addAttribute("formObj",formObj);
+    }
+    @GetMapping("/enquiry")
+    public String addEnquiryPage(Model model) {
+        initForm(model);
         return "addEnquiry";
     }
     @PostMapping("/addEnq")
@@ -60,8 +66,23 @@ public class EnquiryController {
     }
 
     @GetMapping("/enquires")
-    public String viewEnquiryPage() {
+    public String viewEnquiryPage(Model model) {
+        initForm(model);
+        List<StudentEnqEntity> enquiries = enqService.getEnquiries();
+        model.addAttribute("enquiries",enquiries);
         return "viewEnquiry";
+    }
+@   GetMapping("/filterEnquiries")
+    public String getFilteredEnqs(@RequestParam String cname,@RequestParam String status,@RequestParam String mode, Model model){
+        EnquirySearchCriteria criteria = new EnquirySearchCriteria();
+        criteria.setCourseName(cname);
+        criteria.setClassMode(mode);
+        criteria.setEnqStatus(status);
+
+        Integer userId = (Integer) session.getAttribute("userId");
+        List<StudentEnqEntity> filteredEnqs = enqService.getFilteredEnqs(criteria, userId);
+        model.addAttribute("enquiries",filteredEnqs);
+        return "filterEnquiry";
     }
 
     @GetMapping("/logout")
