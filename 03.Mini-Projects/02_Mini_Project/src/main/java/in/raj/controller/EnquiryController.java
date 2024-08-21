@@ -3,6 +3,7 @@ package in.raj.controller;
 import in.raj.binding.DashboardResponse;
 import in.raj.binding.EnquiryForm;
 import in.raj.binding.EnquirySearchCriteria;
+import in.raj.constants.AppConstant;
 import in.raj.entity.StudentEnqEntity;
 import in.raj.service.EnquiryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class EnquiryController {
     public String dashBoardPage(Model model) {
 //        System.out.println("dashboard method calling ........");
         //TODO -> logic to fetch data for dashboard
-        Integer userId = (Integer) session.getAttribute("userId");
+        Integer userId = (Integer) session.getAttribute(AppConstant.STR_USER_ID);
         DashboardResponse dashboardData = enqService.getDashboardData(userId);
         model.addAttribute("dashboardData", dashboardData);
 
@@ -79,7 +80,7 @@ public class EnquiryController {
         criteria.setClassMode(mode);
         criteria.setEnqStatus(status);
 
-        Integer userId = (Integer) session.getAttribute("userId");
+        Integer userId = (Integer) session.getAttribute(AppConstant.STR_USER_ID);
         List<StudentEnqEntity> filteredEnqs = enqService.getFilteredEnqs(criteria, userId);
         model.addAttribute("enquiries",filteredEnqs);
         return "filterEnquiry";

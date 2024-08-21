@@ -3,6 +3,7 @@ package in.raj.service;
 import in.raj.binding.LoginForm;
 import in.raj.binding.SignUpForm;
 import in.raj.binding.UnlockForm;
+import in.raj.constants.AppConstant;
 import in.raj.entity.UserDtlsEntity;
 import in.raj.repository.UserDtlsRepo;
 import in.raj.util.EmailUtils;
@@ -27,14 +28,14 @@ public class UserServiceImpl implements UserService {
         UserDtlsEntity entity =
                 userDtlsRepo.findByEmailAndPwd(form.getEmail(), form.getPwd());
         if (entity == null) {
-            return "Invalid Credentials";
+            return AppConstant.INVALID_CREDENTIALS_MSG;
         }
-        if (entity.getAccStatus().equals("LOCKED")) {
-            return "Your Account Locked";
+        if (entity.getAccStatus().equals(AppConstant.STR_LOCKED)) {
+            return AppConstant.STR_ACC_LOCKED_MSG;
         }
         //Todo -> create session and store user data in session
-        session.setAttribute("userId",entity.getUserId());
-        return "success";
+        session.setAttribute(AppConstant.STR_USER_ID,entity.getUserId());
+        return AppConstant.STR_SUCCESS;
     }
 
     @Override
@@ -54,7 +55,7 @@ public class UserServiceImpl implements UserService {
         entity.setPwd(tempPwd);
 
         //TODO -> Set Account status as LOCKED
-        entity.setAccStatus("LOCKED");
+        entity.setAccStatus(AppConstant.STR_LOCKED);
 
 
         //TODO -> Insert Record
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserService {
 
         // TODO -> Send Email to unlock the Account
         String to = form.getEmail();
-        String subject = "Unlock Your Account | Raj | JRTP";
+        String subject = AppConstant.UNLOCK_EMAIL_SUBJECT;
         StringBuffer body = new StringBuffer("");
         body.append("<h1>Use below temporary password to unlock your account </h1>");
         body.append("Temporary Password -> " + tempPwd);
@@ -79,7 +80,7 @@ public class UserServiceImpl implements UserService {
         UserDtlsEntity entity = userDtlsRepo.findByEmail(form.getEmail());
         if (entity.getPwd().equals(form.getTempPwd())) {
             entity.setPwd(form.getNewPwd());
-            entity.setAccStatus("UNLOCKED");
+            entity.setAccStatus(AppConstant.STR_UNLOCKED);
             userDtlsRepo.save(entity);
             return true;
         } else {
@@ -98,7 +99,7 @@ public class UserServiceImpl implements UserService {
         }
 
         // TODO -> If record available send pwd to email and send success msg
-        String Subject = "Recover Password";
+        String Subject = AppConstant.RECOVER_PWD_EMAIL_SUBJECT;
         String body = "Your Password :: "+entity.getPwd();
         emailUtils.sendEmail(email,Subject,body);
         return true;

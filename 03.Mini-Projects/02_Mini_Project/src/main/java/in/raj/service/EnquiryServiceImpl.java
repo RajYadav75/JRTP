@@ -3,6 +3,7 @@ package in.raj.service;
 import in.raj.binding.DashboardResponse;
 import in.raj.binding.EnquiryForm;
 import in.raj.binding.EnquirySearchCriteria;
+import in.raj.constants.AppConstant;
 import in.raj.entity.CourseEntity;
 import in.raj.entity.EnqStatusEntity;
 import in.raj.entity.StudentEnqEntity;
@@ -91,7 +92,7 @@ public class EnquiryServiceImpl implements EnquiryService {
     public boolean upsertEnquiry(EnquiryForm form) {
         StudentEnqEntity enqEntity = new StudentEnqEntity();
         BeanUtils.copyProperties(form,enqEntity);
-        Integer userId = (Integer) session.getAttribute("userId");
+        Integer userId = (Integer) session.getAttribute(AppConstant.STR_USER_ID);
         UserDtlsEntity userEntity = userDtlsRepo.findById(userId).get();
         enqEntity.setUser(userEntity);
         enqRepo.save(enqEntity);
@@ -100,7 +101,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 
     @Override
     public List<StudentEnqEntity> getEnquiries() {
-        Integer userId = (Integer) session.getAttribute("userId");
+        Integer userId = (Integer) session.getAttribute(AppConstant.STR_USER_ID);
         Optional<UserDtlsEntity> findById = userDtlsRepo.findById(userId);
         if (findById.isPresent()){
             UserDtlsEntity userDtlsEntity = findById.get();
