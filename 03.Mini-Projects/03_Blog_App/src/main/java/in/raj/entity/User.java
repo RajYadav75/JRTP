@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "USER_TBL")
 @Setter
