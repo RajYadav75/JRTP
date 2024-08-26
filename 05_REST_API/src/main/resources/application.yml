@@ -1,0 +1,11 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: raj-rest-api
+
+app:
+  messages:
+    welcomeMsg : Welcome To Raj GitHub Repo..
+    greetMsg : Good Morning
